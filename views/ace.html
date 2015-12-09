@@ -1,0 +1,10 @@
+<h1>Ace Editor</h1>
+
+<div class="row">
+  <div class="col-md-4">Notes go here<br>You are currently at position (0,0) and the treasure is at (150, 100). Move the character to the treasure by using the <br>moveLeft( ), <br>moveRight( ),<br> moveUp( ),<br> and moveDown( ) functions.<br>
+    Each moves the character 50px in the indicated direction. Be quick. You only have 3 seconds to reach the destination and each move takes 0.5s.</div>
+<div class="col-md-4">
+<div ui-ace="aceOption" ng-model="aceModel"></div>
+</div>
+<div class="col-md-4">Game goes here <a class="btn btn-danger" ng-click="run()">Run</a><br>{{aceModel}}</div>
+</div>

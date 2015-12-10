@@ -17,12 +17,15 @@
           };
         }
       };
-      $scope.aceModel = '//Javascript goes here \n var myName = "Terry";';
+      $scope.aceModel = '//Javascript goes here \n moveDown();';
 
       $scope.run = function(){
-        eval($scope.aceModel);
+        //eval($scope.aceModel);
         CodeService.run($scope.aceModel);
       };
 
+      $scope.reRoute = function(){
+        CodeService.reRoute();
+      };
     });
 }());

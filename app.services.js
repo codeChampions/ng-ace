@@ -44,6 +44,8 @@
         $("#char").css('left', '0px');
         posUp = 0;
         posLeft = 0;
+        goFor();
+
       }
       else{
         alert("Sorry, try again");
@@ -58,6 +60,10 @@
 
       };
 
+      var goFor = function(){
+        $location.path('/for');
+        console.log("in for");
+      };
       var reRoute = function(){
         $location.path('/');
       };

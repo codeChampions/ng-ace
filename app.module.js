@@ -18,6 +18,10 @@
           templateUrl: 'views/ace.html',
           controller: 'CodeController'
         })
+        .when('/for',{
+          templateUrl: 'views/for.html',
+          controller: 'CodeController'
+        })
         .when('/404', {
           template: '<h1>Sorry page not found</h1>',
           controller: 'MainController'

@@ -6,6 +6,8 @@
     .factory('CodeService', function($http, $location, _){
       var posLeft = 0;
       var posUp = 0;
+      var down = 0;
+      var right = 0;
 
       var moveLeft = function(){
         if(posLeft>0){
@@ -18,6 +20,7 @@
         if(posLeft < 250){
         $('#char').animate({left: "+=50"}, {duration: 500});
         posLeft +=50;
+        right++;
       }
       };
 
@@ -32,19 +35,34 @@
         if(posUp < 150){
         $('#char').animate({top: "+=50"}, {duration: 500});
         posUp += 50;
+        down++;
+
       }
       };
 
       var run = function(input){
-        eval(input);
+        try{
+          eval(input);
+          if(down != 2) throw "You need to move down twice";
+          if(right != 3) throw "You need to move right three times";
+        }
+        catch(err){
+          $('#error').html('Error: '+err);
+        }
         setTimeout(function(){
         if($('#char').position().top === $('#x').position().top && $('#char').position().left === $('#x').position().left){
-        alert("Congrats you won!");
+        var next = confirm("Go to next lesson?");
+        if(next === true){
+          $location.path('/for');
+        }
+        else{
         $("#char").css('top', '0px');
         $("#char").css('left', '0px');
         posUp = 0;
         posLeft = 0;
-        goFor();
+        down = 0;
+        right = 0;
+      }
 
       }
       else{
@@ -55,6 +73,8 @@
         $("#char").css('left', '0px');
         posUp = 0;
         posLeft = 0;
+        down = 0;
+        right = 0;
 
       }}, 3000);
 

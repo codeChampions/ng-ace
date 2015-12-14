@@ -42,6 +42,7 @@
 
       var run = function(input){
         try{
+          $('#error').html("");
           eval(input);
           if(down != 2) throw "You need to move down twice";
           if(right != 3) throw "You need to move right three times";
